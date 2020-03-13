@@ -191,6 +191,9 @@ type RuntimeConfig struct {
 	// DecryptionKeysPath is the path where keys for image decryption are stored.
 	DecryptionKeysPath string `toml:"decryption_keys_path"`
 
+	// DecryptionSeclParameters is the parameters to obtain keys from secl key broker
+	DecryptionSeclParameters string `toml:"decryption_secl_parameters"`
+
 	// Conmon is the path to conmon binary, used for managing the runtime.
 	Conmon string `toml:"conmon"`
 
@@ -474,8 +477,9 @@ func DefaultConfig() (*Config, error) {
 			GRPCMaxRecvMsgSize: defaultGRPCMaxMsgSize,
 		},
 		RuntimeConfig: RuntimeConfig{
-			DecryptionKeysPath: "/etc/crio/keys/",
-			DefaultRuntime:     defaultRuntime,
+			DecryptionKeysPath:       "/etc/crio/keys/",
+			DecryptionSeclParameters: "",
+			DefaultRuntime:           defaultRuntime,
 			Runtimes: Runtimes{
 				defaultRuntime: {
 					RuntimePath: "",

@@ -17,7 +17,7 @@ require (
 	github.com/containers/conmon v2.0.9+incompatible
 	github.com/containers/image/v5 v5.1.0
 	github.com/containers/libpod v1.6.3-0.20191101152258-04e8bf3dba50
-	github.com/containers/ocicrypt v0.0.0-20190930154801-b87a4a69c741
+	github.com/containers/ocicrypt v0.0.0-20200210162441-0343cc6053fd
 	github.com/containers/psgo v1.4.0
 	github.com/containers/storage v1.15.3
 	github.com/coreos/go-systemd v0.0.0-20190719114852-fd7a80b32e1f
@@ -35,6 +35,7 @@ require (
 	github.com/google/uuid v1.1.1
 	github.com/hpcloud/tail v1.0.0
 	github.com/kr/pty v1.1.8
+	github.com/lumjjb/seclkeywrap v0.0.0-20200306182932-812500f0eb8f
 	github.com/onsi/ginkgo v1.10.3
 	github.com/onsi/gomega v1.7.0
 	github.com/opencontainers/go-digest v1.0.0-rc1
@@ -43,7 +44,7 @@ require (
 	github.com/opencontainers/runtime-spec v1.0.1
 	github.com/opencontainers/runtime-tools v0.9.0
 	github.com/opencontainers/selinux v1.3.0
-	github.com/pkg/errors v0.8.1
+	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.1.0
 	github.com/seccomp/containers-golang v0.3.1
 	github.com/sirupsen/logrus v1.4.2

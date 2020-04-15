@@ -543,7 +543,7 @@ github.com/konsorten/go-windows-terminal-sequences
 github.com/kr/pty
 # github.com/lithammer/dedent v1.1.0
 github.com/lithammer/dedent
-# github.com/lumjjb/seclkeywrap v0.0.0-20200326193448-87f24c6fe13b
+# github.com/lumjjb/seclkeywrap v0.0.0-20200415152757-668c1ccb1797
 github.com/lumjjb/seclkeywrap
 # github.com/magiconair/properties v1.8.1
 github.com/magiconair/properties

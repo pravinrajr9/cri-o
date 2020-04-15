@@ -35,7 +35,7 @@ require (
 	github.com/google/uuid v1.1.1
 	github.com/hpcloud/tail v1.0.0
 	github.com/kr/pty v1.1.8
-	github.com/lumjjb/seclkeywrap v0.0.0-20200326193448-87f24c6fe13b
+	github.com/lumjjb/seclkeywrap v0.0.0-20200415152757-668c1ccb1797
 	github.com/onsi/ginkgo v1.10.3
 	github.com/onsi/gomega v1.7.0
 	github.com/opencontainers/go-digest v1.0.0-rc1

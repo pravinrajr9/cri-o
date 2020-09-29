@@ -9,11 +9,13 @@ import (
 
 	"github.com/containers/image/v5/copy"
 	"github.com/containers/image/v5/types"
+	"github.com/containers/ocicrypt"
 	encconfig "github.com/containers/ocicrypt/config"
 	"github.com/cri-o/cri-o/internal/pkg/log"
 	"github.com/cri-o/cri-o/internal/pkg/storage"
 	"github.com/cri-o/cri-o/server/metrics"
 	"github.com/pkg/errors"
+	"github.com/lumjjb/seclkeywrap"
 	"golang.org/x/net/context"
 	pb "k8s.io/cri-api/pkg/apis/runtime/v1alpha2"
 )
@@ -101,13 +103,29 @@ func (s *Server) pullImage(ctx context.Context, pullArgs *pullArguments) (string
 	}
 
 	var dcc *encconfig.DecryptConfig
+
+	ccs := []encconfig.CryptoConfig{}
+	if s.decryptionSeclParameters != "" {
+		ocicrypt.RegisterKeyWrapper("secl", seclkeywrap.NewKeyWrapper())
+
+		seclDcc, err := seclkeywrap.CreateCryptoConfig([]string{}, []string{s.decryptionSeclParameters})
+		if err != nil {
+			return "", fmt.Errorf("Invalid secl decryption parameters: %v", err)
+		}
+
+		ccs = append(ccs, seclDcc)
+	}
+
 	if _, err := os.Stat(s.decryptionKeysPath); err == nil {
 		cc, err := getDecryptionKeys(s.decryptionKeysPath)
 		if err != nil {
 			return "", err
 		}
-		dcc = cc.DecryptConfig
+		ccs = append(ccs, cc)
 	}
+
+	combinedCc := encconfig.CombineCryptoConfigs(ccs)
+	dcc = combinedCc.DecryptConfig
 
 	var (
 		images []string

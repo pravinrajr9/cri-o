@@ -41,6 +41,7 @@ require (
 	github.com/grpc-ecosystem/go-grpc-middleware v1.1.0
 	github.com/hpcloud/tail v1.0.0
 	github.com/klauspost/cpuid v1.2.1 // indirect
+	github.com/lumjjb/seclkeywrap v0.0.0-20200415152757-668c1ccb1797
 	github.com/onsi/ginkgo v1.12.0
 	github.com/onsi/gomega v1.9.0
 	github.com/opencontainers/go-digest v1.0.0-rc1
@@ -58,7 +59,6 @@ require (
 	github.com/soheilhy/cmux v0.1.4
 	github.com/syndtr/gocapability v0.0.0-20180916011248-d98352740cb2
 	github.com/uber-go/atomic v1.4.0 // indirect
-	github.com/urfave/cli v1.22.1 // indirect
 	github.com/urfave/cli/v2 v2.1.2-0.20200306124602-d648edd48d89
 	github.com/vbatts/git-validation v1.0.0
 	github.com/vbauerster/mpb v3.4.0+incompatible // indirect

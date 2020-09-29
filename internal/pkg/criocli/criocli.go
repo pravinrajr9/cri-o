@@ -117,6 +117,10 @@ func mergeConfig(config *libconfig.Config, ctx *cli.Context) (string, error) {
 		config.DecryptionKeysPath = ctx.String("decryption-keys-path")
 	}
 
+	if ctx.IsSet("decryption-secl-parameters") {
+		config.DecryptionSeclParameters = ctx.String("decryption-secl-parameters")
+	}
+
 	if ctx.IsSet("runtimes") {
 		runtimes := ctx.StringSlice("runtimes")
 		for _, r := range runtimes {
@@ -443,6 +447,10 @@ func getCrioFlags(defConf *libconfig.Config, systemContext *types.SystemContext)
 		&cli.StringFlag{
 			Name:  "decryption-keys-path",
 			Usage: fmt.Sprintf("Path to load keys for image decryption. (default: %q)", defConf.DecryptionKeysPath),
+		},
+		&cli.StringFlag{
+			Name:  "decryption-secl-parameters",
+			Usage: fmt.Sprintf("Parameters to get keys via ISECL (default: %q)", defConf.DecryptionSeclParameters),
 		},
 		// XXX: DEPRECATED
 		&cli.StringFlag{

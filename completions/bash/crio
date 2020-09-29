@@ -26,6 +26,7 @@ h
 --container-exits-dir
 --ctr-stop-timeout
 --decryption-keys-path
+--decryption-secl-parameters
 --default-capabilities
 --default-env
 --default-mounts

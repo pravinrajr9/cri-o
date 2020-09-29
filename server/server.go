@@ -67,6 +67,7 @@ type Server struct {
 
 	appArmorProfile    string
 	decryptionKeysPath string
+	decryptionSeclParameters string
 
 	*lib.ContainerServer
 	monitorsChan      chan struct{}
@@ -390,6 +391,7 @@ func New(
 	}
 
 	s.decryptionKeysPath = config.DecryptionKeysPath
+	s.decryptionSeclParameters = config.DecryptionSeclParameters
 
 	if s.seccompEnabled {
 		if config.SeccompProfile != "" {

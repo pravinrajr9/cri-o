@@ -41,7 +41,7 @@ require (
 	github.com/opencontainers/runc v1.0.0-rc92
 	github.com/opencontainers/runtime-spec v1.0.3-0.20200728170252-4d89ac9fbff6
 	github.com/opencontainers/runtime-tools v0.9.1-0.20200714183735-07406c5828aa
-	github.com/opencontainers/selinux v1.6.0
+	github.com/opencontainers/selinux v1.8.0
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.7.1
 	github.com/psampaz/go-mod-outdated v0.6.0
@@ -66,9 +66,9 @@ require (
 )
 
 replace (
+	github.com/golang/protobuf => github.com/golang/protobuf v1.3.5
 	github.com/opencontainers/runc => github.com/opencontainers/runc v1.0.0-rc90
 	github.com/opencontainers/runtime-spec => github.com/opencontainers/runtime-spec v1.0.3-0.20200710190001-3e4195d92445
-	github.com/golang/protobuf => github.com/golang/protobuf v1.3.5
 	google.golang.org/genproto => google.golang.org/genproto v0.0.0-20200117163144-32f20d992d24
 	google.golang.org/grpc => google.golang.org/grpc v1.27.0
 	k8s.io/api => k8s.io/kubernetes/staging/src/k8s.io/api v0.0.0-20200826142205-e19964183377

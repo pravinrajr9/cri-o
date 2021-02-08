@@ -12,6 +12,8 @@ import (
 	"io"
 	"sync"
 
+	"net"
+	"net/rpc"
 	"github.com/containers/ocicrypt/config"
 	"github.com/containers/ocicrypt/keywrap"
 	encutils "github.com/containers/ocicrypt/utils"
@@ -239,21 +241,32 @@ type KeyInfo struct {
 	Key    []byte `json:"key"`
 }
 
+type transferURL struct {
+	URL string
+}
+
 func getDecSymKeyFromBroker(keyUrl string) (symKey []byte, err error) {
 	//symKey = []byte("this_is_a_256_bit_AES_key_12345!")
 	//return symKey, nil
 	//run wlagent to fetch a new key
 	WlLock.Lock()
 	defer WlLock.Unlock()
-	cmdout, err := exec.Command("wlagent", "fetch-key-url", keyUrl).Output()
+	conn, err := net.Dial("unix", "/var/run/workload-agent/wlagent.sock")
 	if err != nil {
-		return nil, errors.Wrap(err, "Unable to run wlagent")
+		return nil, errors.Errorf("Failed to dial workload-agent wlagent.sock %s", err.Error())
+	}
+
+	client := rpc.NewClient(conn)
+	defer client.Close()
+
+	var args = transferURL{
+		URL: keyUrl,
 	}
 
 	var retKey KeyInfo
-	err = json.Unmarshal(cmdout[:], &retKey)
+	err = client.Call("VirtualMachine.FetchKeyWithURL", &args, &retKey)
 	if err != nil {
-		return nil, errors.Wrap(err, "Unable to unmarshal Keyinfo")
+		return nil, errors.Errorf("Failed to fetch key for given url:%s, Error: %s", keyUrl, err.Error())
 	}
 
 	return retKey.Key, nil
@@ -424,57 +437,3 @@ func aesDecrypt(key []byte, data []byte) ([]byte, error) {
 
 	return plaintext, nil
 }
-
-// MAIN
-/*
-func main() {
-	// Initialize wrapper
-	kw := NewKeyWrapper()
-	key := []byte("this-is-wrapped-key-opts")
-	fmt.Printf("Wrapping sensitive content: %s\n\n", key)
-
-	// Encryption input
-	kbsUrl := "http://kbs.example.com"
-	kbsUid := "some-uid"
-	kbsCert := []byte("some-cert")
-	ec := &config.EncryptConfig{
-		Parameters: map[string][][]byte{
-			"kbs-url":  [][]byte{[]byte(kbsUrl)},
-			"kbs-uid":  [][]byte{[]byte(kbsUid)},
-			"kbs-cert": [][]byte{[]byte(kbsCert)},
-		},
-	}
-
-	annotation, err := kw.WrapKeys(ec, key)
-	if err != nil {
-		fmt.Printf("Error: %v", err)
-		os.Exit(1)
-	}
-
-	fmt.Printf("Wrapped key gave annotation: \n\"%v\" : base64(%s)\n\n", kw.GetAnnotationID(), string(annotation))
-
-	// Decryption input
-	wlsUrl := "http://wls.example.com"
-	wlsCert := []byte("some-cert")
-	dc := &config.DecryptConfig{
-		Parameters: map[string][][]byte{
-			"wls-url":  [][]byte{[]byte(wlsUrl)},
-			"wls-cert": [][]byte{wlsCert},
-		},
-	}
-
-	out, err := kw.UnwrapKey(dc, annotation)
-	if err != nil {
-		fmt.Printf("Error: %v", err)
-		os.Exit(1)
-	}
-
-	fmt.Printf("Output from unwrapping: %s\n\n", out)
-
-	if string(out) != string(key) {
-		fmt.Println("BAD!!! Keys don't match!")
-	} else {
-		fmt.Println("Keys match!")
-	}
-}
-*/

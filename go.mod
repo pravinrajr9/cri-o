@@ -17,8 +17,9 @@ require (
 	github.com/containers/conmon v2.0.15+incompatible
 	github.com/containers/image/v5 v5.4.4
 	github.com/containers/libpod v1.6.3-0.20191101152258-04e8bf3dba50
-	github.com/containers/psgo v1.4.0 // indirect
-	github.com/containers/storage v1.19.1
+	github.com/containers/ocicrypt v0.0.0-20200210162441-0343cc6053fd
+	github.com/containers/psgo v1.4.0
+	github.com/containers/storage v1.15.3
 	github.com/coreos/go-systemd v0.0.0-20190719114852-fd7a80b32e1f
 	github.com/cpuguy83/go-md2man v1.0.10
 	github.com/cri-o/ocicni v0.1.1-0.20200427201233-7253b8b1bc72
@@ -34,14 +35,15 @@ require (
 	github.com/google/uuid v1.1.1
 	github.com/hpcloud/tail v1.0.0
 	github.com/kr/pty v1.1.8
-	github.com/onsi/ginkgo v1.12.0
-	github.com/onsi/gomega v1.9.0
+	github.com/lumjjb/seclkeywrap v0.0.0-20200415152757-668c1ccb1797
+	github.com/onsi/ginkgo v1.10.3
+	github.com/onsi/gomega v1.7.0
 	github.com/opencontainers/go-digest v1.0.0-rc1
 	github.com/opencontainers/image-spec v1.0.2-0.20190823105129-775207bd45b6
 	github.com/opencontainers/runc v1.0.0-rc9
 	github.com/opencontainers/runtime-spec v1.0.1
-	github.com/opencontainers/runtime-tools v0.9.1-0.20200121211434-d1bf3e66ff0a
-	github.com/opencontainers/selinux v1.5.1
+	github.com/opencontainers/runtime-tools v0.9.0
+	github.com/opencontainers/selinux v1.3.0
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.1.0
 	github.com/seccomp/containers-golang v0.3.1

@@ -10,6 +10,8 @@ import (
 	"crypto/cipher"
 	"crypto/rand"
 	"io"
+	"net"
+	"net/rpc"
 	"sync"
 
 	"github.com/containers/ocicrypt/config"
@@ -41,6 +43,10 @@ type annotationPacket struct {
 type aesPacket struct {
 	Ciphertext []byte `json:"cipher_text"`
 	Nonce      []byte `json:"nonce"`
+}
+
+type transferURL struct {
+	URL string
 }
 
 func NewKeyWrapper() keywrap.KeyWrapper {
@@ -245,15 +251,22 @@ func getDecSymKeyFromBroker(keyUrl string) (symKey []byte, err error) {
 	//run wlagent to fetch a new key
 	WlLock.Lock()
 	defer WlLock.Unlock()
-	cmdout, err := exec.Command("wlagent", "fetch-key-url", keyUrl).Output()
+	conn, err := net.Dial("unix", "/var/run/workload-agent/wlagent.sock")
 	if err != nil {
-		return nil, errors.Wrap(err, "Unable to run wlagent")
+		return nil, errors.Errorf("Failed to dial workload-agent wlagent.sock %s", err.Error())
+	}
+
+	client := rpc.NewClient(conn)
+	defer client.Close()
+
+	var args = transferURL{
+		URL: keyUrl,
 	}
 
 	var retKey KeyInfo
-	err = json.Unmarshal(cmdout[:], &retKey)
+	err = client.Call("VirtualMachine.FetchKeyWithURL", &args, &retKey)
 	if err != nil {
-		return nil, errors.Wrap(err, "Unable to unmarshal Keyinfo")
+		return nil, errors.Errorf("Failed to fetch key for given url:%s, Error: %s", keyUrl, err.Error())
 	}
 
 	return retKey.Key, nil

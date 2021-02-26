@@ -30,7 +30,7 @@ require (
 	github.com/go-zoo/bone v1.3.0
 	github.com/godbus/dbus/v5 v5.0.3
 	github.com/gogo/protobuf v1.3.1
-	github.com/golang/mock v1.4.4
+	github.com/golang/mock v1.5.0
 	github.com/google/renameio v0.1.0
 	github.com/google/uuid v1.1.4
 	github.com/grpc-ecosystem/go-grpc-middleware v1.2.0

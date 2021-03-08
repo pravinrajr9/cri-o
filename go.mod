@@ -9,15 +9,15 @@ require (
 	github.com/containerd/cgroups v0.0.0-20201119153540-4cbc285b3327 // indirect
 	github.com/containerd/containerd v1.4.1
 	github.com/containerd/ttrpc v1.0.2
-	github.com/containernetworking/cni v0.8.0
+	github.com/containernetworking/cni v0.8.1
 	github.com/containernetworking/plugins v0.8.7
-	github.com/containers/buildah v1.15.2
-	github.com/containers/common v0.21.0
+	github.com/containers/buildah v1.19.7
+	github.com/containers/common v0.33.4
 	github.com/containers/conmon v2.0.20+incompatible
-	github.com/containers/image/v5 v5.9.0
+	github.com/containers/image/v5 v5.10.2
 	github.com/containers/libpod/v2 v2.0.6
 	github.com/containers/ocicrypt v1.0.3
-	github.com/containers/storage v1.24.4
+	github.com/containers/storage v1.24.6
 	github.com/coreos/go-systemd/v22 v22.1.0
 	github.com/cpuguy83/go-md2man v1.0.10
 	github.com/creack/pty v1.1.11
@@ -37,9 +37,8 @@ require (
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hpcloud/tail v1.0.0
 	github.com/json-iterator/go v1.1.10
-	github.com/klauspost/compress v1.11.6 // indirect
-	github.com/onsi/ginkgo v1.14.1
-	github.com/onsi/gomega v1.10.3
+	github.com/onsi/ginkgo v1.14.2
+	github.com/onsi/gomega v1.10.4
 	github.com/opencontainers/go-digest v1.0.0
 	github.com/opencontainers/image-spec v1.0.2-0.20200206005212-79b036d80240
 	github.com/opencontainers/runc v1.0.0-rc92
@@ -52,7 +51,7 @@ require (
 	github.com/psampaz/go-mod-outdated v0.7.0
 	github.com/sirupsen/logrus v1.7.0
 	github.com/soheilhy/cmux v0.1.4
-	github.com/stretchr/testify v1.6.1
+	github.com/stretchr/testify v1.7.0
 	github.com/syndtr/gocapability v0.0.0-20180916011248-d98352740cb2
 	github.com/urfave/cli/v2 v2.2.0
 	github.com/vishvananda/netlink v1.1.0

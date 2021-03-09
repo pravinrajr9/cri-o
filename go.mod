@@ -39,7 +39,7 @@ require (
 	github.com/json-iterator/go v1.1.10
 	github.com/klauspost/compress v1.11.6 // indirect
 	github.com/onsi/ginkgo v1.14.1
-	github.com/onsi/gomega v1.10.3
+	github.com/onsi/gomega v1.11.0
 	github.com/opencontainers/go-digest v1.0.0
 	github.com/opencontainers/image-spec v1.0.2-0.20200206005212-79b036d80240
 	github.com/opencontainers/runc v1.0.0-rc92

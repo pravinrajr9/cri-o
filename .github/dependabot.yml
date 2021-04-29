@@ -1,0 +1,45 @@
+version: 2
+updates:
+- package-ecosystem: gomod
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  target-branch: master
+  ignore:
+  - dependency-name: github.com/containers/common
+    versions:
+    - 0.34.0
+    - 0.34.2
+    - 0.35.0
+    - 0.35.1
+    - 0.35.2
+    - 0.35.3
+    - 0.35.4
+  - dependency-name: k8s.io/client-go
+    versions:
+    - 0.20.2
+    - 0.20.3
+    - 0.20.4
+    - 0.20.5
+  - dependency-name: github.com/containers/storage
+    versions:
+    - 1.25.0
+    - 1.27.0
+    - 1.28.0
+  - dependency-name: github.com/containers/buildah
+    versions:
+    - 1.19.3
+    - 1.19.4
+    - 1.19.6
+    - 1.19.7
+    - 1.19.8
+  - dependency-name: github.com/golang/mock
+    versions:
+    - 1.4.4
+  - dependency-name: github.com/containerd/containerd
+    versions:
+    - 1.4.3
+  - dependency-name: github.com/onsi/gomega
+    versions:
+    - 1.10.5

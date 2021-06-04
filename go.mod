@@ -45,7 +45,7 @@ require (
 	github.com/opencontainers/runc v1.0.0-rc92
 	github.com/opencontainers/runtime-spec v1.0.3-0.20200728170252-4d89ac9fbff6
 	github.com/opencontainers/runtime-tools v0.9.1-0.20200714183735-07406c5828aa
-	github.com/opencontainers/selinux v1.8.0
+	github.com/opencontainers/selinux v1.8.2
 	github.com/pkg/errors v0.9.1
 	github.com/pquerna/ffjson v0.0.0-20190930134022-aa0246cd15f7 // indirect
 	github.com/prometheus/client_golang v1.7.1

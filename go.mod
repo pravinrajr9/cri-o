@@ -4,20 +4,19 @@ module github.com/cri-o/cri-o
 
 require (
 	github.com/BurntSushi/toml v0.3.1
-	github.com/Microsoft/go-winio v0.4.16
+	github.com/Microsoft/go-winio v0.5.0
 	github.com/blang/semver v3.5.1+incompatible
-	github.com/containerd/cgroups v0.0.0-20201119153540-4cbc285b3327 // indirect
-	github.com/containerd/containerd v1.4.1
+	github.com/containerd/containerd v1.5.1
 	github.com/containerd/ttrpc v1.0.2
-	github.com/containernetworking/cni v0.8.0
-	github.com/containernetworking/plugins v0.8.7
+	github.com/containernetworking/cni v0.8.1
+	github.com/containernetworking/plugins v0.9.1
 	github.com/containers/buildah v1.15.2
 	github.com/containers/common v0.21.0
 	github.com/containers/conmon v2.0.20+incompatible
 	github.com/containers/image/v5 v5.9.0
 	github.com/containers/libpod/v2 v2.0.6
-	github.com/containers/ocicrypt v1.0.3
-	github.com/containers/storage v1.24.4
+	github.com/containers/ocicrypt v1.1.1
+	github.com/containers/storage v1.32.5
 	github.com/coreos/go-systemd/v22 v22.1.0
 	github.com/cpuguy83/go-md2man v1.0.10
 	github.com/creack/pty v1.1.11
@@ -29,41 +28,40 @@ require (
 	github.com/fsnotify/fsnotify v1.4.9
 	github.com/go-zoo/bone v1.3.0
 	github.com/godbus/dbus/v5 v5.0.3
-	github.com/gogo/protobuf v1.3.1
+	github.com/gogo/protobuf v1.3.2
 	github.com/golang/mock v1.4.4
 	github.com/google/renameio v0.1.0
-	github.com/google/uuid v1.1.4
+	github.com/google/uuid v1.2.0
 	github.com/grpc-ecosystem/go-grpc-middleware v1.2.0
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hpcloud/tail v1.0.0
-	github.com/json-iterator/go v1.1.10
-	github.com/klauspost/compress v1.11.6 // indirect
+	github.com/json-iterator/go v1.1.11
 	github.com/onsi/ginkgo v1.14.1
 	github.com/onsi/gomega v1.10.3
 	github.com/opencontainers/go-digest v1.0.0
 	github.com/opencontainers/image-spec v1.0.2-0.20200206005212-79b036d80240
-	github.com/opencontainers/runc v1.0.0-rc92
-	github.com/opencontainers/runtime-spec v1.0.3-0.20200728170252-4d89ac9fbff6
+	github.com/opencontainers/runc v1.0.0
+	github.com/opencontainers/runtime-spec v1.0.3-0.20210326190908-1c3f411f0417
 	github.com/opencontainers/runtime-tools v0.9.1-0.20200714183735-07406c5828aa
-	github.com/opencontainers/selinux v1.8.0
+	github.com/opencontainers/selinux v1.8.2
 	github.com/pkg/errors v0.9.1
 	github.com/pquerna/ffjson v0.0.0-20190930134022-aa0246cd15f7 // indirect
 	github.com/prometheus/client_golang v1.7.1
 	github.com/psampaz/go-mod-outdated v0.7.0
-	github.com/sirupsen/logrus v1.7.0
+	github.com/sirupsen/logrus v1.8.1
 	github.com/soheilhy/cmux v0.1.4
-	github.com/stretchr/testify v1.6.1
-	github.com/syndtr/gocapability v0.0.0-20180916011248-d98352740cb2
+	github.com/stretchr/testify v1.7.0
+	github.com/syndtr/gocapability v0.0.0-20200815063812-42c35b437635
 	github.com/urfave/cli/v2 v2.2.0
-	github.com/vishvananda/netlink v1.1.0
-	golang.org/x/net v0.0.0-20201224014010-6772e930b67b
-	golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9
-	golang.org/x/sys v0.0.0-20210105210732-16f7687f5001
+	github.com/vishvananda/netlink v1.1.1-0.20201029203352-d40f9887b852
+	golang.org/x/net v0.0.0-20210226172049-e18ecbb05110
+	golang.org/x/sync v0.0.0-20201207232520-09787c993a3a
+	golang.org/x/sys v0.0.0-20210426230700-d19ff857e887
 	google.golang.org/grpc v1.33.2
-	k8s.io/api v0.19.2
-	k8s.io/apimachinery v0.19.2
-	k8s.io/client-go v0.18.8
-	k8s.io/cri-api v0.0.0
+	k8s.io/api v0.20.6
+	k8s.io/apimachinery v0.20.6
+	k8s.io/client-go v0.20.6
+	k8s.io/cri-api v0.20.6
 	k8s.io/klog/v2 v2.4.0
 	k8s.io/kubernetes v1.19.2
 	k8s.io/release v0.6.0
